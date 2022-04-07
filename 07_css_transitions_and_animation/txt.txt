@@ -1,0 +1,104 @@
+!Tranziţiile şi animaţiile CSS!
+
+--> În CSS, tranziţiile se definesc prin folosirea proprietăţii transition. În timpul definirii unei tranziţii, trebuie definite neapărat următoarele două date:
+.numele proprietăţii a cărei valoare se va schimba treptat;
+.durata schimbării.
+
+!Funcţiile de tip timing ale tranziţiilor!
+
+--> Viteza cu care se efectuează schimbarea valorii unei proprietăţi, se efectuează în timpul tranziţiei de tip timing, respectiv aceasta este funcţia timing. Ea se controlează prin folosirea proprietăţii transition-timing-function. Această proprietate poate avea valorile prezentate:
+
+*ease --> început lent, apoi urmează accelerarea şi un sfârşit lent; aceasta este valoarea implicită
+*linear --> viteză liniară/egală tot timpul
+*ease-in --> început lent
+*ease-out --> sfârşit lent
+*ease-in-out --> început şi sfârşit lent
+*cubic-bezier(n,n,n,n) --> definirea arbitrară a dinamicii de execuţie prin specificarea parametrilor pentru crearea curbei Bezier
+
+--> transition-timing-function este ilustrată mai jos:  
+//transition: width 2s;
+//transition-timing-function: ease;
+
+
+!Cum se definesc animaţiile CSS?!
+
+--> Animaţiile CSS se definesc la fel ca tranziţiile CSS deja prezentate.
+ Principala diferenţă constă în definirea incompletă a cadrelor-cheie. Cu alte cuvinte, animaţiile CSS sunt determinate printr-un set de cadre-cheie (keyframes).
+  Cadrele-cheie definesc caracteristicile vizuale ale elementelor în anumite momente ale animaţiei.
+
+--> Crearea cadrelor-cheie ale animaţiei CSS se obţine prin folosirea unui element specific limbajului CSS. Acest element se numeşte at-rule.
+--> Pe lângă regula CSS, at-rule este principalul bloc de construcţie al limbajului CSS, respectiv tipul de bază al declaraţiilor CSS. Astfel, declaraţiile CSS at-rule configurează suplimentar comportamentul limbajului CSS.
+--> Printre altele, at-rule se foloseşte şi pentru definirea fonturilor externe – @font-face.
+--> În contextul acestei lecţii, o declaraţie at-rule interesantă este şi cea care permite definirea cadrelor-cheie ale animaţiei – @keyframes.
+
+--> După cum tocmai aţi putut citi, cadrele-cheie ale animaţiei CSS se definesc prin folosirea declaraţiei at-rule cu numele @keyframes:
+
+//@keyframes my-animation {
+    from {
+        width: 250px;
+    }
+ 
+    to {
+        width: 350px;
+    }
+}
+
+
+!Configurarea animaţiilor CSS!
+
+--> Întreaga listă de proprietăţi pentru configurarea animaţiilor CSS este prezentată mai jos:
+
+.animation-name --> defineşte denumirea animaţiei care este definită prin cadrele-cheie folosind construcţia at-rule @keyframes; aceasta este o proprietate obligatorie.
+.nimation-duration --> defineşte durata animaţiei, respectiv cât timp va trece de la începutul până la sfârşitul animaţiei; se exprimă în secunde (s); dacă omitem această proprietate, animaţia nu se va executa.
+.animation-delay	defineşte --> intervalul de timp necesar de la încărcarea elementului până la începerea animaţiei.
+.animation-iteration-count --> defineşte numărul de repetări/iteraţii ale animaţiei
+.animation-direction -->	defineşte direcţia animaţiei, respectiv dacă animaţia se va executa înainte (de la început spre sfârşit), înapoi (de la sfârşit spre început) sau va exista o direcţionare alternativă.
+.animation-timing-function --> defineşte curba de execuţie a animaţiei, prin care se controlează viteza sa în diferite părţi.
+.animation-fill-mode -->	defineşte caracteristicile vizuale ale elementului înainte de încheierea şi după încheierea animaţiei;
+ având în vedere că animaţia nu îşi schimbă permanent caracteristicile elementului, cu această proprietate nu se pot influenţa caracteristicile vizuale ale elementului atunci când animaţia nu se execută.
+.animation-play-state --> permite oprirea şi repornirea animaţiei.
+
+
+--> Prin proprietatea animation-direction valorile pe care le poate avea această proprietate sunt ilustrate:
+
+.normal -->	animaţia se execută normal; aceasta este o valoare implicită.
+.reverse --> animaţia se execută invers, respectiv de la ultimul la primul cadru-cheie.
+.alternate --> animaţia se execută alternativ, mai întâi normal, iar apoi invers.
+.alternate-reverse --> animaţia se execută alternativ, mai întâi invers, iar apoi normal.
+
+
+--> animation-timing-function şi poate avea valorile prezentate : ease; linear; ease-in; ease-out; ease-in-out; cubic-bezier(n,n,n,n).
+
+--> Pentru influenţarea caracteristicilor vizuale ale elementului care se va anima înainte şi după animaţie, trebuie folosită proprietatea animation-fill-mode. Această proprietate poate avea valorile ilustrate:
+
+.none --> animaţia nu va influenţa caracteristicile elementului care se va anima; aceasta este valoarea implicită.
+.forwards --> asupra elementului vor rămâne aplicate caracteristicile definite prin ultimul cadru-cheie al animaţiei.
+.backwards --> asupra elementului vor rămâne aplicate caracteristicile definite prin primul cadru-cheie al animaţiei.
+.both --> elementul va putea să obţină caracteristicile primului şi al ultimului cadru-cheie - desigur, totul în funcţie de direcţionarea animaţiei.
+
+
+!Definirea unificată a caracteristicilor animaţiilor!
+
+--> La sfârşitul acestei lecţii vom prezenta proprietatea care se foloseşte, probabil, cel mai mult în timpul configurării animaţiilor CSS. Este vorba de proprietatea animation:
+
+// animation: animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction animation-fill-mode animation-play-state;
+
+--> Folosind proprietatea animation, toate caracteristicile animaţiei, definite până în momentul de faţă prin proprietăţi individuale, acum se pot unifica în felul următor:
+
+// animation: my-animation 3s ease 2s 2 reverse forwards running;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

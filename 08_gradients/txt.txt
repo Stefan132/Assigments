@@ -1,0 +1,141 @@
+!-Gradienţii-!
+
+
+--> Gradientul este noţiunea care reprezintă un ingredient esenţial al diferitor expresii de design. 
+
+*Ce sunt gradienţii?*
+
+--> Gradienţii reprezintă amestecarea treptată a două sau a mai multor culori pentru obţinerea umplerii unei forme sau a unui element.
+
+
+*Gradienţii în CSS*
+
+--> Limbajul CSS cunoaşte trei tipuri de bază de gradienţi:
+
+//Gradient liniar --> linear-gradient()
+//Gradient radial --> radial-gradient()
+//Gradient conic --> conic-gradient()
+
+--> Pe lângă cele trei tipuri de bază de gradienţi, CSS cunoaşte încă trei tipuri, aşa-numiţii gradienţi repetitivi:
+
+//Gradientul liniar repetitiv --> repeating-linear-gradient()
+//Gradientul radial repetitiv --> repeating-radial-gradient()
+//Gradientul conic repetitiv --> repeating-conic-gradient()
+
+--> Gradienţii CSS sunt, de fapt, reprezentări raster/bitmap, respectiv imagini pentru a căror formare este responsabil browserul. De aceea, gradienţii se pot defini în timpul specificării valorilor pentru proprietăţile CSS care necesită o imagine.
+ Deosebim câteva proprietăţi de acest tip, şi anume:
+    * background-image
+    * border-image
+    * content
+    * cursor
+    * list-style-image
+
+--> Cel mai des, gradienții se folosesc pentru definirea fundalului elementelor HTML, respectiv în timpul utilizării proprietăţilor background sau background-image.
+
+
+*Gradienţii liniari*
+
+--> Gradienţii liniari sunt cei la care tranziţia între două sau mai multe culori se efectuează într-o linie dreaptă.
+
+// background: linear-gradient(#914E67, #D65F4F);
+
+--> CSS deţine diferite valori predefinite, care se pot folosi pentru definirea direcţionării, şi anume:
+
+* to right
+* to left
+* to top
+* to bottom
+* to top right
+* to top left
+* to bottom right
+* to bottom left
+
+// background: linear-gradient(direction, color1, color2, ...);
+
+
+-->  Pentru definirea direcţionării gradientului, când este necesară o libertate mai mare, se pot folosi şi valori exprimate în grade:
+// background: linear-gradient(angle, color1, color2); <=> background: linear-gradient(65deg, #914E67, #D65F4F);
+
+--> Dacă în acest fel trebuie afişate mai mult de două culori, realizarea este mai complicată şi presupune repetarea anumitor culori:
+// background: linear-gradient(#914E67 33%, #D65F4F 33%, #D65F4F 66%, #5D7586 66%);
+
+
+*Combinarea mai multor gradienţi liniari*
+
+--> Desigur, culorile unor astfel de gradienţi trebuie să aibă măcar puţină transparenţă, pentru că astfel se va obţine efectul de amestecare.
+// background: linear-gradient(217deg, rgba(214, 95, 79, 0.8), rgba(214, 95, 79, 0) 70.71%),
+               linear-gradient(127deg, rgba(79, 186, 111, 0.8), rgba(79, 186, 111, 0) 70.71%),
+               linear-gradient(336deg, rgba(81, 146, 210, 0.8), rgba(81, 146, 210, 0) 70.71%);
+
+
+*Gradienţii radiali*
+
+--> Gradienţii radiali se creează cu ajutorul funcţiei CSS cu numele radial-gradient().
+// background: radial-gradient(#F5C167, #D65F4F);
+
+--> Cu alte cuvinte, în timpul creării gradienţilor radiali, este posibilă:
+
+* folosirea mai multor culori;
+* poziţionarea culorilor prin folosirea procentelor;
+* crearea tranziţiilor bruşte;
+* folosirea transparenţei;
+* aranjarea unui număr mai mare de gradienţi unul peste altul.
+
+
+*Poziţionarea centrului din gradientul radial*
+
+// background: radial-gradient(at top left, #F5C167, #D65F4F);
+// background: radial-gradient(at 0% 50%, #F5C167, #D65F4F);
+
+--> Setarea punctului central al gradientului radial se obţine prin specificarea cuvântului-cheie at, după care, ca în exemplu, se pot folosi diferite alte cuvinte-cheie (top, bottom, left, right, center) pentru definirea coordonatelor x şi y.
+
+
+*Definirea formei gradientului radial*
+
+--> Forma gradienţilor radiali se adaptează implicit suprafeţei pe care sunt aplicaţi. În cazul în care suprafaţa este pătrată, gradientul radial va fi circular. 
+
+// background: radial-gradient(circle, #F5C167, #D65F4F);
+
+
+*Definirea dimensiunii gradientului radial*
+
+*closest-side --> dimensiunea gradientului va fi determinată de distanţa de la centrul gradientului până la cea mai apropiată parte a elementului pe care se aplică
+*farthest-side -->	dimensiunea gradientului va fi determinată de distanţa de la centrul gradientului până la cea mai îndepărtată parte a elementului pe care se aplică
+*closest-corner --> dimensiunea gradientului va fi determinată de distanţa de la centrul gradientului până la cel mai apropiat colţ al elementului pe care se aplică
+*farthest-corner --> dimensiunea gradientului va fi determinată de distanţa de la centrul gradientului până la cel mai îndepărtat colţ al elementului pe care se aplică; aceasta este valoarea implicită
+
+//background: radial-gradient(farthest-corner at 100% 50%, #934cc1, #D65F4F);
+
+--> Pentru că în exemplu este folosită valoarea implicită, un efect identic s-ar fi obţinut şi prin omiterea cuvântului-cheie farthest-corner:
+//background: radial-gradient(at 100% 50%, #934cc1, #D65F4F);
+
+--> Totuşi, dacă valoarea proprietăţii background ar fi fost definită într-un mod puţin mai diferit, gradientul radial nu ar fi fost deloc vizibil:
+// background: radial-gradient(closest-side at 100% 50%, #934cc1, #D65F4F);
+
+
+*Gradienţii conici*
+
+// background: conic-gradient(#914E67, #E8BF1C);
+
+--> Definirea centrului la gradientul conic se poate efectua în acelaşi fel ca la gradienţii radiali:
+// background: conic-gradient(at 20% 80%, #914E67, #E8BF1C);
+
+-->Unghiul gradientului conic se poate defini prin folosirea cuvântului-cheie from, după care se specifică valoarea exprimată în grade:
+// background: conic-gradient(from 45deg at 20% 80%, #914E67, #E8BF1C);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

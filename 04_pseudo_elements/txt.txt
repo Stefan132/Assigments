@@ -1,0 +1,38 @@
+-->Aşa cum era cazul cu pseudo-clasele, şi pseudo-elementele sunt continuări speciale, respectiv cuvinte-cheie care se adaugă la sfârşitul selectorilor standard.
+Prima diferenţă dintre pseudo-clase şi pseudo-elemente constă în modul de formare a acestora. Pentru crearea pseudo-elementelor se foloseşte de două ori caracterul două puncte (::).
+
+EX : selector::pseudo-element {
+    property: value;
+}
+
+
+-->Pseudo-elementele au câteva moduri de aplicare diferită. Acestea se pot folosi la:
+
+.stilizarea unei părţi din textul unui element HTML (prima literă şi prima linie din text);
+.stilizarea anumitor elemente care, iniţial, nu sunt parte a structurii HTML; aşadar, prin utilizarea pseudo-elementelor este permisă adăugarea conţinutului la începutul şi sfârşitul unui element HTML;
+.stilizarea textului selectat.
+
+
+-->În limbajul CSS există următoarele pseudo-elemente:
+
+::after
+::before
+::first-letter
+::first-line
+::selection
+
+-->Pseudo-elementele asigură stilizarea unei părţi din textul selectat. Acest lucru se poate obţine datorită pseudo-elementului ::selection. 
+Pentru stilizarea textului selectat, se pot folosi următoarele proprietăţi:
+
+.color
+.backround-color
+.cursor
+.outline
+.text-decoration
+.text-emphasis-color
+.text-shadow
+
+
+
+!!!!Selectorul de tip" reprezintă o categorie a  selectorilor CSS de bază.
+
